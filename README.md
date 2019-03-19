@@ -1,5 +1,9 @@
-# Otsikko
+## OT-Harjoitustyö 2019
 
-*italic*
-**bold**
-normaalia tekstiä
+# Tehtävät
+
+# Viikko 1
+[gitlog.txt](/laskarit/viikko1/gitlog.txt)
+[komentorivi.txt](/laskarit/viikko1/komentorivi.txt)
+
+
