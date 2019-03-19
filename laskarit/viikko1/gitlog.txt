@@ -1,0 +1,98 @@
+commit fdf1713a1a7859b8d46866f1556cb7444bbdfe33
+Author: Mikaelpa <palmroosmikael@gmail.com>
+Date:   Tue Mar 19 02:30:53 2019 +0200
+
+    harjoittelua
+
+ tiedostoja/file1  | 0
+ tiedostoja/file2  | 0
+ tiedostoja/file22 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit a462b9aff7a896d2efa31c8a0be31b93550c3d41
+Author: Mikaelpa <palmroosmikael@gmail.com>
+Date:   Tue Mar 19 02:27:29 2019 +0200
+
+    tiedostoja
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 88cc40b2e965cd3f946294a147eeaac12f10c244
+Author: Mikaelpa <palmroosmikael@gmail.com>
+Date:   Tue Mar 19 02:22:22 2019 +0200
+
+    ekakolmas
+
+ eka.txt    | 2 +-
+ kolmas.txt | 3 ++-
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+commit af65bc319b0fa7322e2c79b164dbd72568d1bb3c
+Author: Mikaelpa <palmroosmikael@gmail.com>
+Date:   Tue Mar 19 02:21:01 2019 +0200
+
+    nimeäminen
+
+ eka.txt      | 1 +
+ tiedosto.txt | 1 -
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+
+commit eb9b615ee7b91a6bce10c2ed3bb9c55adab779ad
+Author: Mikaelpa <palmroosmikael@gmail.com>
+Date:   Tue Mar 19 02:18:15 2019 +0200
+
+    toinen poistettu
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 6ee3ebb79b3db6aefbf0bec3202cfac23f948c44
+Author: Mikaelpa <palmroosmikael@gmail.com>
+Date:   Tue Mar 19 02:15:56 2019 +0200
+
+    stuff lisätty
+
+ stuff/jokintiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 675ee0c654966ebdb23ab91038a1549a4660936f
+Author: Mikaelpa <palmroosmikael@gmail.com>
+Date:   Tue Mar 19 02:15:04 2019 +0200
+
+    toinen kolmas
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit ce73723b10e0baa971df092919d4b852cb912939
+Author: Mikaelpa <palmroosmikael@gmail.com>
+Date:   Tue Mar 19 02:14:02 2019 +0200
+
+    toinen ja kolmas
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 2dcc699a67a0b3fb02449d7a1d31c168e66bf951
+Author: Mikaelpa <palmroosmikael@gmail.com>
+Date:   Tue Mar 19 02:12:24 2019 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 9461f0c05beac649695542debc7e72d666b16d92
+Author: Mikaelpa <palmroosmikael@gmail.com>
+Date:   Tue Mar 19 02:10:43 2019 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
