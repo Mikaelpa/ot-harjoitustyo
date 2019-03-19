@@ -1,3 +1,5 @@
-#Otsikko
+# Otsikko
 
-tekstiä
+*italic*
+**bold**
+normaalia tekstiä
