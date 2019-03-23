@@ -1,4 +1,4 @@
-# OT-Harjoitustyö 2019
+# OTM 2019
 
 ## Tehtävät
 
