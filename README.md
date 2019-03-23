@@ -9,6 +9,6 @@
 
 
 ### Viikko 2
-[testikattavuus](/laskarit/viikko2/Screenshot from 2019-03-23 23-45-00.png)
+[testikattavuus](/laskarit/viikko2/Screenshot%20from%202019-03-23%2023-45-00.png)
 
 
