@@ -11,7 +11,7 @@ Sovelluksella on ainoastaan yhden tyyppisiä käyttäjiä. Tämä on sovelluksen
 ## Perusversion tarjoama toiminnallisuus
 
 - Kun sovellus aukeaa, ruutuun aukeaa tekstikenttä, mihin käyttäjä voi syöttää haluamansa funktion.
-    - Funktion voi olla esim. f(x) = 5x^2 - 4x + 8
+    - Funktio voi olla esim. f(x) = 5x^2 - 4x + 8
 - Kun käyttäjä on syöttänyt funktion ja painaa nappia "piirrä", sovellus piirtää kyseisen funktion kuvaajan näytölle.
 
 ## Jatkokehitysideoita
