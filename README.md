@@ -1,6 +1,13 @@
 # OTM 2019
 
-## Tehtävät
+## Graafinen Laskin
+
+[Tuntikirjanpito](/Graafinen%20laskin/dokumentaatio/tuntikirjanpito.md)
+
+[Vaatimusmäärittely](/Graafinen%20laskin/dokumentaatio/vaatimusmaarittely.md)
+
+
+## Laskarit
 
 ### Viikko 1
 [gitlog.txt](/laskarit/viikko1/gitlog.txt)
