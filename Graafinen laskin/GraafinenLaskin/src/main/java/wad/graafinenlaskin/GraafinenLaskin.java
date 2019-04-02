@@ -79,9 +79,9 @@ public class GraafinenLaskin implements Runnable, ActionListener {
             frame.setPreferredSize(new Dimension(800, 800));
             frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
-            JTextField testi = new JTextField("Logiikka ei vielä toiminnassa =(");
-            testi.setHorizontalAlignment(JTextField.CENTER);
-            frame.getContentPane().add(testi);
+            JTextField filler = new JTextField("Logiikka ei vielä toiminnassa =(");
+            filler.setHorizontalAlignment(JTextField.CENTER);
+            frame.getContentPane().add(filler);
 
             frame.pack();
             frame.setVisible(true);
