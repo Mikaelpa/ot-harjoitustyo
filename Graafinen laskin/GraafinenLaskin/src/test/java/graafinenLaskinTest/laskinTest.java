@@ -12,7 +12,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import wad.graafinenlaskin.GraafinenLaskin;
+import graafinenlaskin.GraafinenLaskin;
 
 
 public class laskinTest {
@@ -44,7 +44,7 @@ public class laskinTest {
     }
     
     @Test
-    public void piirtoNappiVisible() {
+    public void alaPaneeliVisible() {
         assertTrue(laskin.getFrame().getContentPane().getComponent(1).isVisible());
     }
     

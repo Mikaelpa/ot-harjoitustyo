@@ -1,5 +1,5 @@
 
-package wad.graafinenlaskin;
+package graafinenlaskin;
 
 import javax.swing.SwingUtilities;
 
