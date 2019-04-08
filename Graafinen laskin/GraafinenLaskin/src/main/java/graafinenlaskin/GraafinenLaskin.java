@@ -52,7 +52,7 @@ public class GraafinenLaskin implements Runnable, ActionListener {
 
         JPanel ylaPaneli = new JPanel(new GridLayout(1, 8));
         JPanel alaPaneli = new JPanel(new GridLayout(1, 2));
-        JTextField teksti1 = new JTextField("f(x) = ");
+        JTextField teksti1 = new JTextField("f(y) = ");
         teksti1.setEditable(false);
 
         syoteKentta1 = new JTextField("0");
@@ -88,24 +88,32 @@ public class GraafinenLaskin implements Runnable, ActionListener {
         container.add(alaPaneli);
     }
 
-
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == piirraNappi) {
-            int i1 = Integer.parseInt(syoteKentta1.getText());
-            int i2 = Integer.parseInt(syoteKentta2.getText());
-            int i3 = Integer.parseInt(syoteKentta3.getText());
-            int i4 = Integer.parseInt(syoteKentta4.getText());
-            Piirtoalusta alusta = new Piirtoalusta(i1,i2,i3,i4);
-            JFrame frame2 = new JFrame("Piirtoalusta");
-            frame2.setBackground(Color.white);
-            frame2.setPreferredSize(new Dimension(800, 800));
-            frame2.add(alusta);
-            frame2.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-            
-            frame2.pack();
-            frame2.setVisible(true);
+            try {
+                int i1 = Integer.parseInt(syoteKentta1.getText());
+                int i2 = Integer.parseInt(syoteKentta2.getText());
+                int i3 = Integer.parseInt(syoteKentta3.getText());
+                int i4 = Integer.parseInt(syoteKentta4.getText());
+                Piirtoalusta alusta = new Piirtoalusta(i1, i2, i3, i4);
+                JFrame frame2 = new JFrame("Piirtoalusta");
+                frame2.setBackground(Color.white);
+                frame2.setPreferredSize(new Dimension(800, 800));
+                frame2.add(alusta);
+                frame2.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+
+                frame2.pack();
+                frame2.setVisible(true);
+            } catch (Exception ea) {
+                JFrame error = new JFrame("ERROR");
+                error.setPreferredSize(new Dimension(500, 100));
+                error.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+                error.add(new JTextField("Toimin toistaiseksi ainoastaan kokonaisluvuilla :("));
+                error.pack();
+                error.setVisible(true);
+            }
+
         }
 
         if (e.getSource() == tyhjennaNappi) {

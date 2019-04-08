@@ -15,7 +15,6 @@ public class Piirtoalusta extends JPanel {
     private int n2;
     private int n3;
     private int n4;
-    
 
     public Piirtoalusta(int n1, int n2, int n3, int n4) {
         this.n1 = n1;
@@ -40,7 +39,7 @@ public class Piirtoalusta extends JPanel {
         for (int i = 0; i < 800; i++) {
             g.setColor(Color.red);
             y = i;
-            x = n1 * (int) Math.pow(i-380, n2) + 380 - n4 + n3*(i-380);
+            x = (-n1 * (int) Math.pow(i - 380, n2)) + 380 - n4 + (n3 * (i - 380));
             g.drawLine(oldY, oldX, y, x);
             oldX = x;
             oldY = y;
@@ -48,17 +47,13 @@ public class Piirtoalusta extends JPanel {
             g.fillRect(i, 380, 1, 1);
             g.fillRect(380, i, 1, 1);
 
-            
         }
-        
-        
-    }
-    
-    public void piste(int y, Graphics g) {
-        
-        
-        
-    }
+        String funktio = "f(y) = " + String.valueOf(n1)
+                + "x^" + String.valueOf(n2)
+                + " + " + String.valueOf(n3)
+                + "x + " + String.valueOf(n4);
+        g.drawString(funktio, 650, 700);
 
+    }
 
 }
