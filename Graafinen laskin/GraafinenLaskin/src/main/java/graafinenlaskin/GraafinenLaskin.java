@@ -22,9 +22,9 @@ public class GraafinenLaskin implements Runnable, ActionListener {
     private int screenH;
     private JFrame alkuFrame;
     private JFrame piirtoFrame;
-    private JButton piirraNappi;
-    private JButton tyhjennaNappi;
-    private JTextField syoteKentta1;
+    public JButton piirraNappi;
+    public JButton tyhjennaNappi;
+    public JTextField syoteKentta1;
     private JTextField syoteKentta2;
     private JTextField syoteKentta3;
     private JTextField syoteKentta4;
