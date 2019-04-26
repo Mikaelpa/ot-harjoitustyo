@@ -16,7 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
-public class GraafinenLaskin implements Runnable, ActionListener {
+public class Kayttoliittyma implements Runnable, ActionListener {
 
     private int screenW;
     private int screenH;
@@ -92,7 +92,7 @@ public class GraafinenLaskin implements Runnable, ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == piirraNappi) {
             try {
-                int i1 = Integer.parseInt(syoteKentta1.getText());
+                double i1 = Double.parseDouble(syoteKentta1.getText());
                 int i2 = Integer.parseInt(syoteKentta2.getText());
                 int i3 = Integer.parseInt(syoteKentta3.getText());
                 int i4 = Integer.parseInt(syoteKentta4.getText());

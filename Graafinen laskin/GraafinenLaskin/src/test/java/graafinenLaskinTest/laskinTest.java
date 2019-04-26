@@ -12,13 +12,13 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import graafinenlaskin.GraafinenLaskin;
+import graafinenlaskin.Kayttoliittyma;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 
 public class laskinTest {
 
-    GraafinenLaskin laskin;
+    Kayttoliittyma laskin;
 
     public laskinTest() {
     }
@@ -33,7 +33,7 @@ public class laskinTest {
 
     @Before
     public void setUp() {
-        laskin = new GraafinenLaskin();
+        laskin = new Kayttoliittyma();
         laskin.run();
     }
 
