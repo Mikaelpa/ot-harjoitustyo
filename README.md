@@ -6,6 +6,10 @@ Sovellus ei suoranaisesti ole laskin, vaikka nimessä niin sanotaan. Sovelluksel
 
 [Vaatimusmäärittely](/Graafinen%20laskin/dokumentaatio/vaatimusmaarittely.md)
 
+## Releaset
+
+[Viikko 5](https://github.com/Mikaelpa/ot-harjoitustyo/releases/tag/Viikko5Beta)
+
 ### Testaus
 
 Testit suoritetaan komennolla
@@ -21,6 +25,18 @@ mvn jacoco:report
 ```
 
 Kattavuusraporttia voi tarkastella avaamalla selaimella tiedosto _target/site/jacoco/index.html_
+
+
+### Suoritettavan jarin generointi
+
+Komento
+
+```
+mvn package
+```
+
+generoi hakemistoon _target_ suoritettavan jar-tiedoston _GraafinenLaskin-1.0-SNAPSHOT.jar_
+
 
 ### Checkstyle
 
