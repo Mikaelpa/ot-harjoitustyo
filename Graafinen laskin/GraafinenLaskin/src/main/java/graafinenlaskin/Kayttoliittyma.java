@@ -3,9 +3,6 @@ package graafinenlaskin;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -28,6 +25,7 @@ public class Kayttoliittyma implements Runnable, ActionListener {
     private JTextField syoteKentta2;
     private JTextField syoteKentta3;
     private JTextField syoteKentta4;
+    private Piirtoalusta alusta;
 
     @Override
     public void run() {
@@ -38,7 +36,7 @@ public class Kayttoliittyma implements Runnable, ActionListener {
         alkuFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         alkuFrame.setLocation(screenW / 2, screenH / 2);
         luoKomponentit(alkuFrame.getContentPane());
-
+        
         alkuFrame.pack();
         alkuFrame.setVisible(true);
     }
@@ -93,27 +91,36 @@ public class Kayttoliittyma implements Runnable, ActionListener {
         if (e.getSource() == piirraNappi) {
             try {
                 double i1 = Double.parseDouble(syoteKentta1.getText());
-                int i2 = Integer.parseInt(syoteKentta2.getText());
-                int i3 = Integer.parseInt(syoteKentta3.getText());
-                int i4 = Integer.parseInt(syoteKentta4.getText());
-                Piirtoalusta alusta = new Piirtoalusta(i1, i2, i3, i4);
-                JFrame frame2 = new JFrame("Piirtoalusta");
-                frame2.setBackground(Color.white);
-                frame2.setPreferredSize(new Dimension(800, 800));
-                frame2.add(alusta);
-                frame2.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+                double i2 = Double.parseDouble(syoteKentta2.getText());
+                double i3 = Double.parseDouble(syoteKentta3.getText());
+                double i4 = Double.parseDouble(syoteKentta4.getText());
+                if (alusta == null) {
+                    alusta = new Piirtoalusta(i1, i2, i3, i4);
+                    JFrame frame2 = new JFrame("Piirtoalusta");
+                    frame2.setBackground(Color.white);
+                    frame2.setPreferredSize(new Dimension(800, 800));
+                    frame2.add(alusta);
+                    frame2.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+                    frame2.setResizable(false);
+                    frame2.pack();
+                    frame2.setVisible(true);
+                } else {
+                    alusta.setN(i1, i2, i3, i4);
+                    alusta.repaint();
+                }
 
-                frame2.pack();
-                frame2.setVisible(true);
             } catch (Exception ea) {
                 JFrame error = new JFrame("ERROR");
-                error.setPreferredSize(new Dimension(500, 100));
+                error.setPreferredSize(new Dimension(300, 100));
                 error.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-                error.add(new JTextField("Toimin toistaiseksi ainoastaan kokonaisluvuilla :("));
+                JTextField teksti = new JTextField("Toimin vain liukuluvuilla");
+                teksti.setEditable(false);
+                error.setLocation(screenW / 2, screenH / 2 - 100);
+                error.add(teksti);
                 error.pack();
                 error.setVisible(true);
-            }
 
+            }
         }
 
         if (e.getSource() == tyhjennaNappi) {
@@ -121,6 +128,7 @@ public class Kayttoliittyma implements Runnable, ActionListener {
             syoteKentta2.setText("0");
             syoteKentta3.setText("0");
             syoteKentta4.setText("0");
+            alusta.tyhjenna();
         }
     }
 

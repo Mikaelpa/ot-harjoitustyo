@@ -1,58 +1,84 @@
 package graafinenlaskin;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import javax.swing.JFrame;
+import java.util.Random;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.WindowConstants;
 
 public class Piirtoalusta extends JPanel {
 
     private double n1;
-    private int n2;
-    private int n3;
-    private int n4;
+    private double n2;
+    private double n3;
+    private double n4;
+    private int k;
+    private int piirtoY;
+    private boolean tyhjennys;
 
-    public Piirtoalusta(double n1, int n2, int n3, int n4) {
+    public Piirtoalusta(double n1, double n2, double n3, double n4) {
+        this.n1 = n1;
+        this.n2 = n2;
+        this.n3 = n3;
+        this.n4 = n4;
+        this.k = 380;
+        this.piirtoY = 740;
+        this.tyhjennys = false;
+    }
+
+    public void setN(double n1, double n2, double n3, double n4) {
         this.n1 = n1;
         this.n2 = n2;
         this.n3 = n3;
         this.n4 = n4;
     }
 
-    public Piirtoalusta() {
-
-    }
-
     @Override
     protected void paintComponent(Graphics g) {
-        super.paintComponents(g);
-        this.setBackground(Color.BLACK);
-        g.setColor(Color.BLACK);
-        int y = 0;
-        double x = 0;
-        int oldY = 0;
-        int oldX = 0;
-        for (int i = 0; i < 800; i++) {
-            g.setColor(Color.red);
-            y = i;
-            x = (-n1 * Math.pow(i - 380, n2)) + 380 + n4 - (n3 * (380-i));
-            g.drawLine(oldY, oldX, y, (int)x);
-            oldX = (int)x;
-            oldY = y;
-            g.setColor(Color.BLACK);
-            g.fillRect(i, 380, 1, 1);
-            g.fillRect(380, i, 1, 1);
+        Graphics2D g2 = (Graphics2D) g;
+        super.paintComponents(g2);
+        if (tyhjennys == false) {
+            this.setBackground(Color.BLACK);
+            g2.setColor(Color.BLACK);
+            Random rand = new Random();
+            float re = rand.nextFloat();
+            float gr = rand.nextFloat();
+            float bl = rand.nextFloat();
+            double x;
+            Color randomColor = new Color(re, gr, bl);
+            for (int i = 0; i < 800; i++) {
 
+                x = 0.01 * (-n1 * Math.pow(i - k, n2)) + k - (n4 * 10) - (n3 * (i - k));
+                g2.setColor(randomColor);
+                g2.fillOval(i, (int) x, 3, 3);
+                g2.setColor(Color.BLACK);
+                g2.fillRect(i, k, 1, 1);
+                g2.fillRect(k, i, 1, 1);
+
+            }
+            g2.setColor(randomColor);
+            String funktio = "f(y) = " + String.valueOf(n1)
+                    + "x^" + String.valueOf(n2)
+                    + " + " + String.valueOf(n3)
+                    + "x + " + String.valueOf(n4);
+            g2.drawString(funktio, 610, piirtoY);
+            piirtoY -= 20;
+        } else {
+            g2.clearRect(0, 0, 800, 800);
+
+            tyhjennys = false;
+            this.piirtoY = 720;
+            for (int i = 0; i < 800; i++) {
+                g2.setColor(Color.BLACK);
+                g2.fillRect(i, k, 1, 1);
+                g2.fillRect(k, i, 1, 1);
+            }
         }
-        String funktio = "f(y) = " + String.valueOf(n1)
-                + "x^" + String.valueOf(n2)
-                + " + " + String.valueOf(n3)
-                + "x + " + String.valueOf(n4);
-        g.drawString(funktio, 650, 700);
+    }
+
+    public void tyhjenna() {
+        this.tyhjennys = true;
+        super.repaint();
 
     }
 
