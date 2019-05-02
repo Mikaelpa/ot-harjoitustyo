@@ -8,13 +8,13 @@ import javax.swing.JPanel;
 
 public class Piirtoalusta extends JPanel {
 
-    private double n1;
-    private double n2;
-    private double n3;
-    private double n4;
-    private int k;
-    private int piirtoY;
-    private boolean tyhjennys;
+    public double n1;
+    public double n2;
+    public double n3;
+    public double n4;
+    public int k;
+    public int piirtoY;
+    public boolean tyhjennys;
 
     public Piirtoalusta(double n1, double n2, double n3, double n4) {
         this.n1 = n1;

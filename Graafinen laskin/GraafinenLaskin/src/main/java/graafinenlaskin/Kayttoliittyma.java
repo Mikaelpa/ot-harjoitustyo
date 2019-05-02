@@ -25,7 +25,7 @@ public class Kayttoliittyma implements Runnable, ActionListener {
     private JTextField syoteKentta2;
     private JTextField syoteKentta3;
     private JTextField syoteKentta4;
-    private Piirtoalusta alusta;
+    public Piirtoalusta alusta;
 
     @Override
     public void run() {
@@ -36,7 +36,7 @@ public class Kayttoliittyma implements Runnable, ActionListener {
         alkuFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         alkuFrame.setLocation(screenW / 2, screenH / 2);
         luoKomponentit(alkuFrame.getContentPane());
-        
+
         alkuFrame.pack();
         alkuFrame.setVisible(true);
     }
@@ -128,7 +128,9 @@ public class Kayttoliittyma implements Runnable, ActionListener {
             syoteKentta2.setText("0");
             syoteKentta3.setText("0");
             syoteKentta4.setText("0");
-            alusta.tyhjenna();
+            if (alusta != null) {
+                alusta.tyhjenna();
+            }
         }
     }
 

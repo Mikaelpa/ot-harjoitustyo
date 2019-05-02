@@ -5,7 +5,6 @@
  */
 package graafinenLaskinTest;
 
-import javax.swing.JFrame;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -13,12 +12,15 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import graafinenlaskin.Kayttoliittyma;
+import graafinenlaskin.Piirtoalusta;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
-import javax.swing.JButton;
 
 public class laskinTest {
 
     Kayttoliittyma laskin;
+    Piirtoalusta alusta;
 
     public laskinTest() {
     }
@@ -39,25 +41,40 @@ public class laskinTest {
 
     @After
     public void tearDown() {
+
     }
 
     @Test
     public void tekeeAlussaFramen() {
         assertEquals("\"Graafinen Laskin\"", laskin.getFrame().getTitle());
+        laskin.getFrame().dispose();
+    }
+
+    @Test
+    public void frameOikeaKorkeus() {
+        assertEquals(100, laskin.getFrame().getHeight());
+    }
+
+    @Test
+    public void frameOikeaLeveys() {
+        assertEquals(400, laskin.getFrame().getWidth());
     }
 
     @Test
     public void alaPaneeliVisible() {
         assertTrue(laskin.getFrame().getContentPane().getComponent(1).isVisible());
+        laskin.getFrame().dispose();
     }
 
     @Test
     public void tyhjennaTest() {
         laskin.syoteKentta1.setText("12");
         assertEquals("12", laskin.syoteKentta1.getText());
-        ActionEvent tapahtuma = new ActionEvent(laskin.tyhjennaNappi, 0, laskin.tyhjennaNappi.getActionCommand());
+        ActionEvent tapahtuma = new ActionEvent(laskin.tyhjennaNappi, 1, laskin.tyhjennaNappi.getActionCommand());
         laskin.actionPerformed(tapahtuma);
         assertEquals("0", laskin.syoteKentta1.getText());
+        laskin.getFrame().dispose();
+
     }
 
     @Test
@@ -67,6 +84,7 @@ public class laskinTest {
         ActionEvent tapahtuma = new ActionEvent(laskin.piirraNappi, 0, laskin.piirraNappi.getActionCommand());
         laskin.actionPerformed(tapahtuma);
         assertEquals("12", laskin.syoteKentta1.getText());
+        laskin.getFrame().dispose();
     }
 
     @Test
@@ -76,6 +94,26 @@ public class laskinTest {
         ActionEvent tapahtuma = new ActionEvent(laskin.piirraNappi, 1, laskin.piirraNappi.getActionCommand());
         laskin.actionPerformed(tapahtuma);
         assertEquals("asd", laskin.syoteKentta1.getText());
+        laskin.getFrame().dispose();
+    }
+
+    @Test
+    public void setNTest() {
+        ActionEvent tapahtuma1 = new ActionEvent(laskin.piirraNappi, 1, laskin.piirraNappi.getActionCommand());
+        assertEquals("0", laskin.syoteKentta1.getText());
+        laskin.actionPerformed(tapahtuma1);
+        laskin.syoteKentta1.setText("12");
+        ActionEvent tapahtuma2 = new ActionEvent(laskin.piirraNappi, 1, laskin.piirraNappi.getActionCommand());
+        laskin.actionPerformed(tapahtuma2);
+        assertEquals("12", laskin.syoteKentta1.getText());
+
+    }
+
+    @Test
+    public void tyhjennaAlustaTest() {
+        this.alusta = new Piirtoalusta(0, 0, 0, 0);
+        alusta.tyhjenna();
+        assertTrue(alusta.tyhjennys);
     }
 
 }
