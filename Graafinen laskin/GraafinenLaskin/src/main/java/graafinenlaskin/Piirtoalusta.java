@@ -6,6 +6,11 @@ import java.awt.Graphics2D;
 import java.util.Random;
 import javax.swing.JPanel;
 
+/**
+ * Piirtoalusta-luokalla piirretään funktioiden kuvaajat
+ *
+ * @author mikaelpa
+ */
 public class Piirtoalusta extends JPanel {
 
     public double n1;
@@ -16,6 +21,14 @@ public class Piirtoalusta extends JPanel {
     public int piirtoY;
     public boolean tyhjennys;
 
+    /**
+     * Uutta piirtoalustaa tehtäessä annetaan sille kaikki parametrit
+     *
+     * @param n1
+     * @param n2
+     * @param n3
+     * @param n4
+     */
     public Piirtoalusta(double n1, double n2, double n3, double n4) {
         this.n1 = n1;
         this.n2 = n2;
@@ -26,6 +39,14 @@ public class Piirtoalusta extends JPanel {
         this.tyhjennys = false;
     }
 
+    /**
+     * Jos piirtoalusta on jo tehty, tällä metodilla voi antaa sille uudet arvot
+     *
+     * @param n1
+     * @param n2
+     * @param n3
+     * @param n4
+     */
     public void setN(double n1, double n2, double n3, double n4) {
         this.n1 = n1;
         this.n2 = n2;
@@ -33,6 +54,10 @@ public class Piirtoalusta extends JPanel {
         this.n4 = n4;
     }
 
+    /**
+     *Piirretään piirtoalustalle funktioiden kuvaajat yms
+     * @param g
+     */
     @Override
     protected void paintComponent(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
@@ -75,7 +100,9 @@ public class Piirtoalusta extends JPanel {
             }
         }
     }
-
+/**
+ * Tyhjennetään piirtoalusta kuvaajista ja funktioista
+ */
     public void tyhjenna() {
         this.tyhjennys = true;
         super.repaint();

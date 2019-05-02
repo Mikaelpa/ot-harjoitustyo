@@ -12,7 +12,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
-
+/**
+ * Ohjelman käyttöliittymä
+ * @author mikaelpa
+ */
 public class Kayttoliittyma implements Runnable, ActionListener {
 
     private int screenW;
@@ -26,7 +29,9 @@ public class Kayttoliittyma implements Runnable, ActionListener {
     private JTextField syoteKentta3;
     private JTextField syoteKentta4;
     public Piirtoalusta alusta;
-
+/**
+ * Ajetaan ohjelma suoraan mainista
+ */
     @Override
     public void run() {
         screenW = Toolkit.getDefaultToolkit().getScreenSize().width;
@@ -40,7 +45,10 @@ public class Kayttoliittyma implements Runnable, ActionListener {
         alkuFrame.pack();
         alkuFrame.setVisible(true);
     }
-
+/**
+ * Luodaan käyttöliittymän komponentit
+ * @param container Annetaan metodille alkuframen container
+ */
     private void luoKomponentit(Container container) {
         alkuFrame.setLayout(new GridLayout(2, 1));
         piirraNappi = new JButton("Piirrä");
@@ -85,41 +93,18 @@ public class Kayttoliittyma implements Runnable, ActionListener {
         container.add(ylaPaneli);
         container.add(alaPaneli);
     }
-
+/**
+ * Painalluksenkuuntelia molemmille napeille
+ * @param e tapahtuma / painallus
+ */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == piirraNappi) {
             try {
-                double i1 = Double.parseDouble(syoteKentta1.getText());
-                double i2 = Double.parseDouble(syoteKentta2.getText());
-                double i3 = Double.parseDouble(syoteKentta3.getText());
-                double i4 = Double.parseDouble(syoteKentta4.getText());
-                if (alusta == null) {
-                    alusta = new Piirtoalusta(i1, i2, i3, i4);
-                    JFrame frame2 = new JFrame("Piirtoalusta");
-                    frame2.setBackground(Color.white);
-                    frame2.setPreferredSize(new Dimension(800, 800));
-                    frame2.add(alusta);
-                    frame2.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-                    frame2.setResizable(false);
-                    frame2.pack();
-                    frame2.setVisible(true);
-                } else {
-                    alusta.setN(i1, i2, i3, i4);
-                    alusta.repaint();
-                }
+                teeAlusta();
 
             } catch (Exception ea) {
-                JFrame error = new JFrame("ERROR");
-                error.setPreferredSize(new Dimension(300, 100));
-                error.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-                JTextField teksti = new JTextField("Toimin vain liukuluvuilla");
-                teksti.setEditable(false);
-                error.setLocation(screenW / 2, screenH / 2 - 100);
-                error.add(teksti);
-                error.pack();
-                error.setVisible(true);
-
+                teeError();
             }
         }
 
@@ -133,9 +118,50 @@ public class Kayttoliittyma implements Runnable, ActionListener {
             }
         }
     }
-
+/**
+ * 
+ * @return Palautetaan JFrame
+ */
     public JFrame getFrame() {
         return this.alkuFrame;
     }
+/**
+ * Tehdään error-viesti jos ohjelmalle on annettu virheellinen syöte
+ */
+    public void teeError() {
+        JFrame error = new JFrame("ERROR");
+        error.setPreferredSize(new Dimension(300, 100));
+        error.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        JTextField teksti = new JTextField("Toimin vain liukuluvuilla");
+        teksti.setEditable(false);
+        error.setLocation(screenW / 2, screenH / 2 - 100);
+        error.add(teksti);
+        error.pack();
+        error.setVisible(true);
 
+    }
+/**
+ * Jos "piirrä" nappulaa painetaan ensimmäistä kertaa, tehdään uusi piirtoalusta
+ * Jos "piirrä" nappulaa on jo painettu, piirretään silloin jo olemassa olevaan piirtoalustaan.
+ */
+    public void teeAlusta() {
+        double i1 = Double.parseDouble(syoteKentta1.getText());
+        double i2 = Double.parseDouble(syoteKentta2.getText());
+        double i3 = Double.parseDouble(syoteKentta3.getText());
+        double i4 = Double.parseDouble(syoteKentta4.getText());
+        if (alusta == null) {
+            alusta = new Piirtoalusta(i1, i2, i3, i4);
+            JFrame frame2 = new JFrame("Piirtoalusta");
+            frame2.setBackground(Color.white);
+            frame2.setPreferredSize(new Dimension(800, 800));
+            frame2.add(alusta);
+            frame2.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+            frame2.setResizable(false);
+            frame2.pack();
+            frame2.setVisible(true);
+        } else {
+            alusta.setN(i1, i2, i3, i4);
+            alusta.repaint();
+        }
+    }
 }
