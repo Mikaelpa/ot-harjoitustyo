@@ -10,6 +10,8 @@ Sovellus ei suoranaisesti ole laskin, vaikka nimessä niin sanotaan. Sovelluksel
 
 [Viikko 5](https://github.com/Mikaelpa/ot-harjoitustyo/releases/tag/Viikko5Beta)
 
+[Viikko 7](https://github.com/Mikaelpa/ot-harjoitustyo/releases/tag/Viikko7)
+
 ### Testaus
 
 Testit suoritetaan komennolla
