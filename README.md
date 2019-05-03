@@ -12,7 +12,7 @@ Sovellus ei suoranaisesti ole laskin, vaikka nimessä niin sanotaan. Sovelluksel
 
 [Viikko 5](https://github.com/Mikaelpa/ot-harjoitustyo/releases/tag/Viikko5Beta)
 
-[Viikko 7](https://github.com/Mikaelpa/ot-harjoitustyo/releases/tag/Viikko7)
+[Loppupalautus](https://github.com/Mikaelpa/ot-harjoitustyo/releases/tag/Viikko7)
 
 ### Testaus
 
@@ -39,7 +39,7 @@ Komento
 mvn package
 ```
 
-generoi hakemistoon _target_ suoritettavan jar-tiedoston _GraafinenLaskin-1.0-SNAPSHOT.jar_
+tekee kansioon target suorituskelpoisen jar-tiedoston _GraafinenLaskin-1.0-SNAPSHOT.jar_
 
 
 ### Checkstyle
