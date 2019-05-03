@@ -71,44 +71,44 @@ public class laskinTest {
 
     @Test
     public void tyhjennaTest() {
-        laskin.syoteKentta1.setText("12");
-        assertEquals("12", laskin.syoteKentta1.getText());
-        ActionEvent tapahtuma = new ActionEvent(laskin.tyhjennaNappi, 1, laskin.tyhjennaNappi.getActionCommand());
+        laskin.text1.setText("12");
+        assertEquals("12", laskin.text1.getText());
+        ActionEvent tapahtuma = new ActionEvent(laskin.clearButton, 1, laskin.clearButton.getActionCommand());
         laskin.actionPerformed(tapahtuma);
-        assertEquals("0", laskin.syoteKentta1.getText());
+        assertEquals("0", laskin.text1.getText());
         laskin.getFrame().dispose();
 
     }
 
     @Test
     public void piirraTest() {
-        laskin.syoteKentta1.setText("12");
-        assertEquals("12", laskin.syoteKentta1.getText());
-        ActionEvent tapahtuma = new ActionEvent(laskin.piirraNappi, 0, laskin.piirraNappi.getActionCommand());
+        laskin.text1.setText("12");
+        assertEquals("12", laskin.text1.getText());
+        ActionEvent tapahtuma = new ActionEvent(laskin.drawButton, 0, laskin.drawButton.getActionCommand());
         laskin.actionPerformed(tapahtuma);
-        assertEquals("12", laskin.syoteKentta1.getText());
+        assertEquals("12", laskin.text1.getText());
         laskin.getFrame().dispose();
     }
 
     @Test
     public void piirraTestError() {
-        laskin.syoteKentta1.setText("asd");
-        assertEquals("asd", laskin.syoteKentta1.getText());
-        ActionEvent tapahtuma = new ActionEvent(laskin.piirraNappi, 1, laskin.piirraNappi.getActionCommand());
+        laskin.text1.setText("asd");
+        assertEquals("asd", laskin.text1.getText());
+        ActionEvent tapahtuma = new ActionEvent(laskin.drawButton, 1, laskin.drawButton.getActionCommand());
         laskin.actionPerformed(tapahtuma);
-        assertEquals("asd", laskin.syoteKentta1.getText());
+        assertEquals("asd", laskin.text1.getText());
         laskin.getFrame().dispose();
     }
 
     @Test
     public void setNTest() {
-        ActionEvent tapahtuma1 = new ActionEvent(laskin.piirraNappi, 1, laskin.piirraNappi.getActionCommand());
-        assertEquals("0", laskin.syoteKentta1.getText());
+        ActionEvent tapahtuma1 = new ActionEvent(laskin.drawButton, 1, laskin.drawButton.getActionCommand());
+        assertEquals("0", laskin.text1.getText());
         laskin.actionPerformed(tapahtuma1);
-        laskin.syoteKentta1.setText("12");
-        ActionEvent tapahtuma2 = new ActionEvent(laskin.piirraNappi, 1, laskin.piirraNappi.getActionCommand());
+        laskin.text1.setText("12");
+        ActionEvent tapahtuma2 = new ActionEvent(laskin.drawButton, 1, laskin.drawButton.getActionCommand());
         laskin.actionPerformed(tapahtuma2);
-        assertEquals("12", laskin.syoteKentta1.getText());
+        assertEquals("12", laskin.text1.getText());
     }
 
     @Test
@@ -130,22 +130,22 @@ public class laskinTest {
 
     @Test
     public void alustaInitTest() {
-        alusta.tyhjennys = true;
+        alusta.clear = true;
         JFrame frame = new JFrame();
         frame.add(alusta);
         frame.pack();
         frame.repaint();
-        assertEquals(alusta.piirtoY, 740);
-        assertTrue(alusta.tyhjennys);
+        assertEquals(alusta.functionDrawY, 740);
+        assertTrue(alusta.clear);
         BufferedImage bi = new BufferedImage(400, 400, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2 = bi.createGraphics();
         alusta.init(g2);
-        assertEquals(alusta.piirtoY, 720);
+        assertEquals(alusta.functionDrawY, 720);
     }
 
         @Test
     public void alustaPaintTest() {
-        alusta.tyhjennys = true;
+        alusta.clear = true;
         JFrame frame = new JFrame();
         frame.add(alusta);
         frame.pack();
@@ -153,29 +153,14 @@ public class laskinTest {
         BufferedImage bi = new BufferedImage(400, 400, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2 = bi.createGraphics();
         alusta.paint(g2);
-        assertEquals(alusta.piirtoY, 720);
+        assertEquals(alusta.functionDrawY, 720);
     }
     
     @Test
     public void alustatyhjennysTest() {
-        assertFalse(alusta.tyhjennys);
+        assertFalse(alusta.clear);
         alusta.tyhjenna();
-        assertTrue(alusta.tyhjennys);
-    }
-    
-        @Test
-    public void alustaInitTest() {
-        alusta.tyhjennys = true;
-        JFrame frame = new JFrame();
-        frame.add(alusta);
-        frame.pack();
-        frame.repaint();
-        assertEquals(alusta.piirtoY, 740);
-        assertTrue(alusta.tyhjennys);
-        BufferedImage bi = new BufferedImage(400, 400, BufferedImage.TYPE_INT_ARGB);
-        Graphics2D g2 = bi.createGraphics();
-        alusta.init(g2);
-        assertEquals(alusta.piirtoY, 720);
+        assertTrue(alusta.clear);
     }
 
 }

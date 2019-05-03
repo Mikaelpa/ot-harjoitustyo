@@ -20,14 +20,14 @@ public class Kayttoliittyma implements Runnable, ActionListener {
 
     private int screenW;
     private int screenH;
-    private JFrame alkuFrame;
-    public JButton piirraNappi;
-    public JButton tyhjennaNappi;
-    public JTextField syoteKentta1;
-    private JTextField syoteKentta2;
-    private JTextField syoteKentta3;
-    private JTextField syoteKentta4;
-    public Piirtoalusta alusta;
+    private JFrame startFrame;
+    public JButton drawButton;
+    public JButton clearButton;
+    public JTextField text1;
+    private JTextField text2;
+    private JTextField text3;
+    private JTextField text4;
+    public Piirtoalusta platform;
 /**
  * Ajetaan ohjelma suoraan mainista
  */
@@ -35,62 +35,62 @@ public class Kayttoliittyma implements Runnable, ActionListener {
     public void run() {
         screenW = Toolkit.getDefaultToolkit().getScreenSize().width;
         screenH = Toolkit.getDefaultToolkit().getScreenSize().height;
-        alkuFrame = new JFrame("\"Graafinen Laskin\"");
-        alkuFrame.setPreferredSize(new Dimension(400, 100));
-        alkuFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        alkuFrame.setLocation(screenW / 2, screenH / 2);
-        luoKomponentit(alkuFrame.getContentPane());
+        startFrame = new JFrame("\"Graafinen Laskin\"");
+        startFrame.setPreferredSize(new Dimension(400, 100));
+        startFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        startFrame.setLocation(screenW / 2, screenH / 2);
+        initComponents(startFrame.getContentPane());
 
-        alkuFrame.pack();
-        alkuFrame.setVisible(true);
+        startFrame.pack();
+        startFrame.setVisible(true);
     }
 /**
  * Luodaan käyttöliittymän komponentit
  * @param container Annetaan metodille alkuframen container
  */
-    private void luoKomponentit(Container container) {
-        alkuFrame.setLayout(new GridLayout(2, 1));
-        piirraNappi = new JButton("Piirrä");
-        piirraNappi.addActionListener(this);
-        tyhjennaNappi = new JButton("Tyhjennä");
-        tyhjennaNappi.addActionListener(this);
+    private void initComponents(Container container) {
+        startFrame.setLayout(new GridLayout(2, 1));
+        drawButton = new JButton("Piirrä");
+        drawButton.addActionListener(this);
+        clearButton = new JButton("Tyhjennä");
+        clearButton.addActionListener(this);
 
-        JPanel ylaPaneli = new JPanel(new GridLayout(1, 8));
-        JPanel alaPaneli = new JPanel(new GridLayout(1, 2));
+        JPanel upperPanel = new JPanel(new GridLayout(1, 8));
+        JPanel lowerPanel = new JPanel(new GridLayout(1, 2));
         JTextField teksti1 = new JTextField("f(y) = ");
         teksti1.setEditable(false);
 
-        syoteKentta1 = new JTextField("0");
+        text1 = new JTextField("0");
 
         JTextField teksti2 = new JTextField("x^");
         teksti2.setEditable(false);
 
-        syoteKentta2 = new JTextField("0");
+        text2 = new JTextField("0");
 
         JTextField teksti3 = new JTextField(" + ");
         teksti3.setEditable(false);
 
-        syoteKentta3 = new JTextField("0");
+        text3 = new JTextField("0");
 
         JTextField teksti4 = new JTextField("x +");
         teksti4.setEditable(false);
 
-        syoteKentta4 = new JTextField("0");
+        text4 = new JTextField("0");
 
-        ylaPaneli.add(teksti1);
-        ylaPaneli.add(syoteKentta1);
-        ylaPaneli.add(teksti2);
-        ylaPaneli.add(syoteKentta2);
-        ylaPaneli.add(teksti3);
-        ylaPaneli.add(syoteKentta3);
-        ylaPaneli.add(teksti4);
-        ylaPaneli.add(syoteKentta4);
+        upperPanel.add(teksti1);
+        upperPanel.add(text1);
+        upperPanel.add(teksti2);
+        upperPanel.add(text2);
+        upperPanel.add(teksti3);
+        upperPanel.add(text3);
+        upperPanel.add(teksti4);
+        upperPanel.add(text4);
 
-        alaPaneli.add(tyhjennaNappi);
-        alaPaneli.add(piirraNappi);
+        lowerPanel.add(clearButton);
+        lowerPanel.add(drawButton);
 
-        container.add(ylaPaneli);
-        container.add(alaPaneli);
+        container.add(upperPanel);
+        container.add(lowerPanel);
     }
 /**
  * Painalluksenkuuntelia molemmille napeille
@@ -98,22 +98,22 @@ public class Kayttoliittyma implements Runnable, ActionListener {
  */
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == piirraNappi) {
+        if (e.getSource() == drawButton) {
             try {
-                teeAlusta();
+                makePlatform();
 
             } catch (Exception ea) {
-                teeError();
+                makeError();
             }
         }
 
-        if (e.getSource() == tyhjennaNappi) {
-            syoteKentta1.setText("0");
-            syoteKentta2.setText("0");
-            syoteKentta3.setText("0");
-            syoteKentta4.setText("0");
-            if (alusta != null) {
-                alusta.tyhjenna();
+        if (e.getSource() == clearButton) {
+            text1.setText("0");
+            text2.setText("0");
+            text3.setText("0");
+            text4.setText("0");
+            if (platform != null) {
+                platform.tyhjenna();
             }
         }
     }
@@ -122,12 +122,12 @@ public class Kayttoliittyma implements Runnable, ActionListener {
  * @return Palautetaan JFrame
  */
     public JFrame getFrame() {
-        return this.alkuFrame;
+        return this.startFrame;
     }
 /**
  * Tehdään error-viesti jos ohjelmalle on annettu virheellinen syöte
  */
-    public void teeError() {
+    public void makeError() {
         JFrame error = new JFrame("ERROR");
         error.setPreferredSize(new Dimension(300, 100));
         error.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -143,24 +143,24 @@ public class Kayttoliittyma implements Runnable, ActionListener {
  * Jos "piirrä" nappulaa painetaan ensimmäistä kertaa, tehdään uusi piirtoalusta
  * Jos "piirrä" nappulaa on jo painettu, piirretään silloin jo olemassa olevaan piirtoalustaan.
  */
-    public void teeAlusta() {
-        double i1 = Double.parseDouble(syoteKentta1.getText());
-        double i2 = Double.parseDouble(syoteKentta2.getText());
-        double i3 = Double.parseDouble(syoteKentta3.getText());
-        double i4 = Double.parseDouble(syoteKentta4.getText());
-        if (alusta == null) {
-            alusta = new Piirtoalusta(i1, i2, i3, i4);
-            JFrame frame2 = new JFrame("Piirtoalusta");
-            frame2.setBackground(Color.white);
-            frame2.setPreferredSize(new Dimension(800, 800));
-            frame2.add(alusta);
-            frame2.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-            frame2.setResizable(false);
-            frame2.pack();
-            frame2.setVisible(true);
+    public void makePlatform() {
+        double i1 = Double.parseDouble(text1.getText());
+        double i2 = Double.parseDouble(text2.getText());
+        double i3 = Double.parseDouble(text3.getText());
+        double i4 = Double.parseDouble(text4.getText());
+        if (platform == null) {
+            platform = new Piirtoalusta(i1, i2, i3, i4);
+            JFrame fr = new JFrame("Piirtoalusta");
+            fr.setBackground(Color.white);
+            fr.setPreferredSize(new Dimension(800, 800));
+            fr.add(platform);
+            fr.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+            fr.setResizable(false);
+            fr.pack();
+            fr.setVisible(true);
         } else {
-            alusta.setN(i1, i2, i3, i4);
-            alusta.repaint();
+            platform.setN(i1, i2, i3, i4);
+            platform.repaint();
         }
     }
 }

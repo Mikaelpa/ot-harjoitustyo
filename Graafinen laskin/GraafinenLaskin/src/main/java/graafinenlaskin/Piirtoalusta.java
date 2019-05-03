@@ -16,9 +16,9 @@ public class Piirtoalusta extends JPanel {
     public double n2;
     public double n3;
     public double n4;
-    public int k;
-    public int piirtoY;
-    public boolean tyhjennys;
+    public int middle;
+    public int functionDrawY;
+    public boolean clear;
 
     /**
      * Uutta piirtoalustaa tehtäessä annetaan sille kaikki parametrit
@@ -33,9 +33,9 @@ public class Piirtoalusta extends JPanel {
         this.n2 = n2;
         this.n3 = n3;
         this.n4 = n4;
-        this.k = 380;
-        this.piirtoY = 740;
-        this.tyhjennys = false;
+        this.middle = 380;
+        this.functionDrawY = 740;
+        this.clear = false;
     }
 
     /**
@@ -59,29 +59,29 @@ public class Piirtoalusta extends JPanel {
      * @param g
      */
     public void init(Graphics g) {
-        if (tyhjennys) {
+        if (clear) {
             g.clearRect(0, 0, 800, 800);
-            piirtoY = 720;
+            functionDrawY = 720;
         }
-        int vali = 0;
-        int numerot = 80;
-        int nykyX = 3;
-        int nykyY = -3;
+        int lineSpace = 0;
+        int numberSpace = 80;
+        int currentX = 3;
+        int currentY = -3;
         for (int i = 0; i < 800; i++) {
             g.setColor(Color.BLACK);
-            g.fillRect(i, k, 1, 1);
-            g.fillRect(k, i, 1, 1);
-            g.drawLine(vali, k - 5, vali, k + 5);
-            g.drawLine(k - 5, vali, k + 5, vali);
-            vali += 20;
+            g.fillRect(i, middle, 1, 1);
+            g.fillRect(middle, i, 1, 1);
+            g.drawLine(lineSpace, middle - 5, lineSpace, middle + 5);
+            g.drawLine(middle - 5, lineSpace, middle + 5, lineSpace);
+            lineSpace += 20;
             if (i % 80 == 0) {
-                if (nykyX != 0) {
-                    g.drawString(String.valueOf(nykyX), k + 10, numerot + 2);
-                    g.drawString(String.valueOf(nykyY), numerot - 2, k - 10);
+                if (currentX != 0) {
+                    g.drawString(String.valueOf(currentX), middle + 10, numberSpace + 2);
+                    g.drawString(String.valueOf(currentY), numberSpace - 2, middle - 10);
                 }
-                numerot += 100;
-                nykyX--;
-                nykyY++;
+                numberSpace += 100;
+                currentX--;
+                currentY++;
             }
 
         }
@@ -95,7 +95,7 @@ public class Piirtoalusta extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         init(g);
-        if (tyhjennys == false) {
+        if (clear == false) {
             super.paintComponents(g);
             g.clearRect(0, 0, 200, 30);
             g.setColor(Color.BLACK);
@@ -103,25 +103,25 @@ public class Piirtoalusta extends JPanel {
             Color randomColor = randColor();
             g.setColor(randomColor);
             for (int i = 0; i < 800; i++) {
-                x = 0.01 * (-n1 * Math.pow(i - k, n2)) + k - (n4 * 100) - (n3 * (i - k));
+                x = 0.01 * (-n1 * Math.pow(i - middle, n2)) + middle - (n4 * 100) - (n3 * (i - middle));
                 g.setColor(randomColor);
                 g.fillOval(i, (int) x, 3, 3);
             }
-            String funktio = "f(y) = " + String.valueOf(n1)
+            String function = "f(y) = " + String.valueOf(n1)
                     + "x^" + String.valueOf(n2)
                     + " + " + String.valueOf(n3)
                     + "x + " + String.valueOf(n4);
-            g.drawString(funktio, 610, piirtoY);
-            piirtoY -= 20;
+            g.drawString(function, 610, functionDrawY);
+            functionDrawY -= 20;
         }
-        tyhjennys = false;
+        clear = false;
     }
 
     /**
      * Tyhjennetään piirtoalusta kuvaajista ja funktioista
      */
     public void tyhjenna() {
-        tyhjennys = true;
+        clear = true;
         repaint();
 
     }
