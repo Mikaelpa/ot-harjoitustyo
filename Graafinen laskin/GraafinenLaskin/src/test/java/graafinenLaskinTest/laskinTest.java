@@ -12,15 +12,14 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import graafinenlaskin.Kayttoliittyma;
-import graafinenlaskin.Piirtoalusta;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+
+
 import java.awt.event.ActionEvent;
+
 
 public class laskinTest {
 
     Kayttoliittyma laskin;
-    Piirtoalusta alusta;
 
     public laskinTest() {
     }
@@ -109,11 +108,6 @@ public class laskinTest {
 
     }
 
-    @Test
-    public void tyhjennaAlustaTest() {
-        this.alusta = new Piirtoalusta(0, 0, 0, 0);
-        alusta.tyhjenna();
-        assertTrue(alusta.tyhjennys);
-    }
+
 
 }
