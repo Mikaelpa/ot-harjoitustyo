@@ -6,6 +6,8 @@ Sovellus ei suoranaisesti ole laskin, vaikka nimessä niin sanotaan. Sovelluksel
 
 [Vaatimusmäärittely](/Graafinen%20laskin/dokumentaatio/vaatimusmaarittely.md)
 
+[Käyttöohje](/Graafinen%20laskin/dokumentaatio/kayttoohje.md)
+
 ## Releaset
 
 [Viikko 5](https://github.com/Mikaelpa/ot-harjoitustyo/releases/tag/Viikko5Beta)
@@ -50,5 +52,13 @@ Tiedostoon [checkstyle.xml](/Graafinen%20laskin/GraafinenLaskin/checkstyle.xml) 
 
 Mahdolliset virheilmoitukset selviävät avaamalla selaimella tiedosto _target/site/checkstyle.html_
 
+### JavaDoc
 
+JavaDoc generoidaan komennolla
+
+```
+mvn javadoc:javadoc
+```
+
+JavaDocin voi avata tiedostosijainnista _target/site/apidocs/index.html_
 

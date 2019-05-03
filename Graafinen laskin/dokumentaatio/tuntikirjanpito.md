@@ -6,5 +6,8 @@
 | 02.04 | 4h   | Projektin aloitus, GUI:n aloitus, alkutestejä |
 | 08.04 | 3h   | Alkulogiikan kokeilu, lisää testejä |
 | 15.04 | 1h   | Näpertelyä |
-| yht | 9h   |  |
+| 25.04 | 3h   | Näpertelyä |
+| 02.05 | 11h   | Logiikan parantelua|
+| 03.05 | 4h   | Dokumentoinnin tekemistä |
+| yht | 27h   |  |
 
