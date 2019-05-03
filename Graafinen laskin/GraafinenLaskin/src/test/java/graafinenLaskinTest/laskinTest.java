@@ -129,7 +129,7 @@ public class laskinTest {
     }
 
     @Test
-    public void alustaAlkuTest() {
+    public void alustaInitTest() {
         alusta.tyhjennys = true;
         JFrame frame = new JFrame();
         frame.add(alusta);
@@ -161,6 +161,21 @@ public class laskinTest {
         assertFalse(alusta.tyhjennys);
         alusta.tyhjenna();
         assertTrue(alusta.tyhjennys);
+    }
+    
+        @Test
+    public void alustaInitTest() {
+        alusta.tyhjennys = true;
+        JFrame frame = new JFrame();
+        frame.add(alusta);
+        frame.pack();
+        frame.repaint();
+        assertEquals(alusta.piirtoY, 740);
+        assertTrue(alusta.tyhjennys);
+        BufferedImage bi = new BufferedImage(400, 400, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = bi.createGraphics();
+        alusta.init(g2);
+        assertEquals(alusta.piirtoY, 720);
     }
 
 }
