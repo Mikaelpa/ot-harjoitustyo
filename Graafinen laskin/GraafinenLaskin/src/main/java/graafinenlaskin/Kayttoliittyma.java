@@ -21,7 +21,6 @@ public class Kayttoliittyma implements Runnable, ActionListener {
     private int screenW;
     private int screenH;
     private JFrame alkuFrame;
-    private JFrame piirtoFrame;
     public JButton piirraNappi;
     public JButton tyhjennaNappi;
     public JTextField syoteKentta1;
