@@ -2,6 +2,8 @@
 
 Sovellus ei suoranaisesti ole laskin, vaikka nimessä niin sanotaan. Sovelluksella voi sen sijaan piirtää funktioiden kuvaajia.
 
+[Arkkitehtuurikuvaus](/Graafinen%20laskin/dokumentaatio/arkkitehtuuri.md)
+
 [Testausdokumentti](/Graafinen%20laskin/dokumentaatio/testausdokumentti.md)
 
 [Tuntikirjanpito](/Graafinen%20laskin/dokumentaatio/tuntikirjanpito.md)
