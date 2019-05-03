@@ -8,6 +8,6 @@
 | 15.04 | 1h   | Näpertelyä |
 | 25.04 | 3h   | Näpertelyä |
 | 02.05 | 11h   | Logiikan parantelua|
-| 03.05 | 4h   | Dokumentoinnin tekemistä |
-| yht | 27h   |  |
+| 03.05 | 13h   | Dokumentoinnin tekemistä, testejä |
+| yht | 36h   |  |
 
