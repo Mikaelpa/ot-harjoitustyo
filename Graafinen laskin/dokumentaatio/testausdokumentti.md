@@ -36,5 +36,6 @@ Kaikki [määrittelydokumentin](https://github.com/Mikaelpa/ot-harjoitustyo/blob
 
 ## Sovellukseen jääneet laatuongelmat
 
--Sovellus piirtää piirtoalustan vasempaan yläreunaan viimeisimmän käytetyn komponentin(en vieläkään ymmärrä mistä tämä johtuu) ja tämä on valitettavasti korjattu vähän purkkamaisella ratkaisulla piirtää kyseisen tilan päälle tyhjää.
--Funktion kuvaajien käyttämä satunnainen väri saattaa välillä mennä niin vaaleaksi, ettei sitä näy valkoista taustaa vasten
+- Sovellus piirtää piirtoalustan vasempaan yläreunaan viimeisimmän käytetyn komponentin(en vieläkään ymmärrä mistä tämä johtuu) ja tämä on valitettavasti korjattu vähän purkkamaisella ratkaisulla piirtää kyseisen tilan päälle tyhjää.
+
+- Funktion kuvaajien käyttämä satunnainen väri saattaa välillä mennä niin vaaleaksi, ettei sitä näy valkoista taustaa vasten
