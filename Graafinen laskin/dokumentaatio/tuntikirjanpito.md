@@ -7,7 +7,7 @@
 | 08.04 | 3h   | Alkulogiikan kokeilu, lisää testejä |
 | 15.04 | 1h   | Näpertelyä |
 | 25.04 | 3h   | Näpertelyä |
-| 02.05 | 7h   | Logiikan parantelua|
+| 02.05 | 11h   | Logiikan parantelua|
 | 03.05 | 4h   | Dokumentoinnin tekemistä |
-| yht | 23h   |  |
+| yht | 27h   |  |
 
