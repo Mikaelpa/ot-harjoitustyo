@@ -13,6 +13,8 @@ Sovelluksella on ainoastaan yhden tyyppisiä käyttäjiä. Tämä on sovelluksen
 - Kun sovellus aukeaa, ruutuun aukeaa tekstikenttä, mihin käyttäjä voi syöttää haluamansa funktion.
     - Funktio voi olla esim. f(x) = 5x^2 - 4x + 8
 - Kun käyttäjä on syöttänyt funktion ja painaa nappia "piirrä", sovellus piirtää kyseisen funktion kuvaajan näytölle.
+- Käyttäjä voi piirtää useita kuvaajia samalle alustalle eri väreillä.
+- Käyttäjä voi halutessaan tyhjentää piirtoalustan.
 
 ## Jatkokehitysideoita
 
@@ -20,4 +22,3 @@ Perusversion jälkeen järjestelmää täydennetään ajan salliessa esim. seura
 
 - Tehdään "laskimen" näköinen käyttöliittymä, missä jokaiselle numerolle ja merkille(esim. x, sin, cos, tan, ln, log.. jne) on oma nappinsa.
 - Lisätään käyttöliittymän piirtoalustalle mahdollisuus zoomata sisään tai ulos
-- Lisätään mahdollisuus piirtää eri väreillä useita kuvaajia samalle piirtoalustalle.
