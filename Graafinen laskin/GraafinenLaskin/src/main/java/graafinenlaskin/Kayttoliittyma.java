@@ -27,9 +27,9 @@ public class Kayttoliittyma implements Runnable, ActionListener {
     private JTextField text2;
     private JTextField text3;
     private JTextField text4;
-    public Piirtoalusta platform;
+    public Piirtoalusta canvas;
 /**
- * Ajetaan ohjelma suoraan mainista
+ * Ajetaan ohjelma suoraan mainista ja tehdään käyttöliittymän frame
  */
     @Override
     public void run() {
@@ -112,8 +112,8 @@ public class Kayttoliittyma implements Runnable, ActionListener {
             text2.setText("0");
             text3.setText("0");
             text4.setText("0");
-            if (platform != null) {
-                platform.tyhjenna();
+            if (canvas != null) {
+                canvas.clearBoard();
             }
         }
     }
@@ -131,9 +131,9 @@ public class Kayttoliittyma implements Runnable, ActionListener {
         JFrame error = new JFrame("ERROR");
         error.setPreferredSize(new Dimension(300, 100));
         error.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        JTextField teksti = new JTextField("Toimin vain liukuluvuilla");
+        JTextField teksti = new JTextField("Toimin vain liukuluvuilla tai kokonaisluvuilla");
         teksti.setEditable(false);
-        error.setLocation(screenW / 2, screenH / 2 - 100);
+        error.setLocation(screenW / 2, screenH / 2 - 50);
         error.add(teksti);
         error.pack();
         error.setVisible(true);
@@ -148,19 +148,19 @@ public class Kayttoliittyma implements Runnable, ActionListener {
         double i2 = Double.parseDouble(text2.getText());
         double i3 = Double.parseDouble(text3.getText());
         double i4 = Double.parseDouble(text4.getText());
-        if (platform == null) {
-            platform = new Piirtoalusta(i1, i2, i3, i4);
+        if (canvas == null) {
+            canvas = new Piirtoalusta(i1, i2, i3, i4);
             JFrame fr = new JFrame("Piirtoalusta");
             fr.setBackground(Color.white);
             fr.setPreferredSize(new Dimension(800, 800));
-            fr.add(platform);
+            fr.add(canvas);
             fr.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
             fr.setResizable(false);
             fr.pack();
             fr.setVisible(true);
         } else {
-            platform.setN(i1, i2, i3, i4);
-            platform.repaint();
+            canvas.setN(i1, i2, i3, i4);
+            canvas.repaint();
         }
     }
 }

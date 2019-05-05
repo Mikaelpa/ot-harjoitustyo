@@ -120,7 +120,7 @@ public class Piirtoalusta extends JPanel {
     /**
      * Tyhjennetään piirtoalusta kuvaajista ja funktioista
      */
-    public void tyhjenna() {
+    public void clearBoard() {
         clear = true;
         repaint();
 
