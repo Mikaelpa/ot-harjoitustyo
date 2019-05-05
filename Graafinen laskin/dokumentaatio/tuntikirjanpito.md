@@ -9,5 +9,6 @@
 | 25.04 | 3h   | Näpertelyä |
 | 02.05 | 11h   | Logiikan parantelua|
 | 03.05 | 13h   | Dokumentoinnin tekemistä, testejä |
-| yht | 36h   |  |
+| 05.05 | 10 min   | Refaktorointi englanniksi |
+| yht | 36h 10min  |  |
 
